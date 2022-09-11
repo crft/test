@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage(${branch}) {
+        stage('pull code') {
             steps {
-               checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/crft/test.git']]])
+               checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/crft/test.git']]])
             }
         }
     }
